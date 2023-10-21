@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523/issues"
   },
-  "homepage": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523#readme"
+  "homepage": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523#readme",
+  "dependencies": {
+    "mongoose": "^7.6.3"
+  }
 }

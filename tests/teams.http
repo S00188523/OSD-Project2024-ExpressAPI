@@ -1,0 +1,45 @@
+@port = 3000
+
+###
+
+### POST Request for a team
+
+# @name postATeam
+POST http://localhost:{{port}}/api/v1/teams HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Liverpool FC",
+  "venue": "Anfield",
+  "league": "English Premier League",
+  "kitColour": "Red",
+  "manager": "Jurgen Klopp"
+}
+
+###
+### GET Request for a team
+GET http://localhost:{{port}}/api/v1/teams HTTP/1.1
+
+@newTeamID = {{postATeam.response.body._id}}
+
+###
+### GET request for a team by ID
+GET http://localhost:{{port}}/api/v1/teams/{{newTeamID}}
+
+###
+### PUT request for a team by ID - (updates latest team added)
+PUT http://localhost:{{port}}/api/v1/teams/{{newTeamID}}
+content-type: application/json
+
+{
+    
+  "name": "Arsenal",
+  "venue": "The Emirates",
+  "league": "English Premier League",
+  "kitColour": "Red and White",
+  "manager": "Mikel Arteta"
+}
+
+###
+### DELETE request to delete a team by ID
+DELETE http://localhost:{{port}}/api/v1/teams/{{newTeamID}}

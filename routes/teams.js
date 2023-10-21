@@ -1,26 +1,25 @@
-const express = require('express');
+const express = require('express')
 
-const { Team } = require('../models/teams');
+const {Team} = require('../models/teams')
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    console.log(req.body);
+    
+
     let team = new Team(req.body);
 
     console.log(team) // to check what was received
    
     try {
-        const { clubName, venue, league, kitColour, dateFounded } = req.body;
-    
-        // Create a new team instance with all the fields
-        const contact = new Contact({ clubName, venue, league, kitColour, dateFounded });
-    
-        // Save the taem to the database
-        const savedTeam = await team.save();
-    
-        // Respond with the saved teams, which should include all the fields
-        res.status(201).json(savedTeam);
+
+      team = await team.save();
+  
+  
+      res
+        .location(`${team._id}`)
+        .status(201)
+        .json(team)
     }
 
     catch (error) {
@@ -30,15 +29,61 @@ router.post('/', async (req, res) => {
 
 });
 
+// GET Request to Retrieve All Teams
 router.get('/', async (req, res) => {
+  try {
+      const teams = await Team.find(); // Assuming Team is your Mongoose model
+      res.status(200).json(teams);
+  } catch (error) {
+      res.status(500).send('Error retrieving teams: ' + error);
+  }
+});
 
-    try {
-      const games = await Game.find()
-      res.json(games);
-    }
-    catch (error) {
-      res.status(500).json('db error ' + error)
-    }
-  });
+// PUT Request to Update a Team
+router.put('/:teamId', async (req, res) => {
+  const { teamId } = req.params;
+  const update = req.body;
+
+  try {
+      const updatedTeam = await Team.findByIdAndUpdate(teamId, update, { new: true });
+      if (!updatedTeam) {
+          return res.status(404).send('Team not found.');
+      }
+      res.status(200).json(updatedTeam);
+  } catch (error) {
+      res.status(500).send('Error updating team: ' + error);
+  }
+});
+
+// PUT Request to Update a Team
+router.put('/:teamId', async (req, res) => {
+  const { teamId } = req.params;
+  const update = req.body;
+
+  try {
+      const updatedTeam = await Team.findByIdAndUpdate(teamId, update, { new: true });
+      if (!updatedTeam) {
+          return res.status(404).send('Team not found.');
+      }
+      res.status(200).json(updatedTeam);
+  } catch (error) {
+      res.status(500).send('Error updating team: ' + error);
+  }
+});
+
+// DELETE Request to Remove a Team
+router.delete('/:teamId', async (req, res) => {
+  const { teamId } = req.params;
+
+  try {
+      const deletedTeam = await Team.findByIdAndRemove(teamId);
+      if (!deletedTeam) {
+          return res.status(404).send('Team not found.');
+      }
+      res.status(204).send(); // No content (successful deletion)
+  } catch (error) {
+      res.status(500).send('Error deleting team: ' + error);
+  }
+});
 
 module.exports = router

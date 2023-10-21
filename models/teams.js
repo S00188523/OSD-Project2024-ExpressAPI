@@ -1,12 +1,12 @@
 const mongoose  = require('mongoose');
 
 const teamSchema = new mongoose.Schema({
-    clubName: String,
-    venue: String,
-    league: String,
-    kitColour: String,
-    dateFounded: Date
-})
+    name : {type: String, required: true},
+    venue : String,
+    league : String,
+    kitColour : String,
+    manager : String
+});
 
 const Team = mongoose.model('team', teamSchema);
 
