@@ -1,0 +1,22 @@
+{
+  "name": "assignmentpart1-s00188523",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/8i5ojox6)\r # assignment 1 - Adam Grace - S00188523",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523/issues"
+  },
+  "homepage": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523#readme"
+}
