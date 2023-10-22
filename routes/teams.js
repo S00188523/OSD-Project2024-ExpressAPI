@@ -44,20 +44,34 @@ router.get('/', async (req, res) => {
   }
 });
 
-// PUT Request to Update a Team
-router.put('/:teamId', async (req, res) => {
-  const { teamId } = req.params;
-  const update = req.body;
+// GET request by ID
+router.get('/:id', async (req, res) => {
 
-  try {
-      const updatedTeam = await Team.findByIdAndUpdate(teamId, update, { new: true });
-      if (!updatedTeam) {
-          return res.status(404).send('Team not found.');
+  let id = req.params.id;
+
+  try{
+
+  
+      const team = await Team.findById(id)
+
+      if (team) {
+
+        .json(team)
+
       }
-      res.status(200).json(updatedTeam);
-  } catch (error) {
-      res.status(500).send('Error updating team: ' + error);
+
+      else {
+
+        res.status('404').json('not found');
+
+      }
   }
+
+  catch (error){
+
+    res.status(404).json('id is incorrect' + error)
+
+}
 });
 
 // PUT Request to Update a Team

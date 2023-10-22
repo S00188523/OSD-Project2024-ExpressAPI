@@ -11,7 +11,7 @@ content-type: application/json
 {
   "name": "Liverpool FC",
   "venue": "Anfield",
-  "venueCapacity": 9000,
+  "venueCapacity": 65000,
   "league": "English Premier League",
   "kitColour": "Red",
   "manager": "Jurgen Klopp"
