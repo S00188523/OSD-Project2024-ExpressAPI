@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ITSligo3rdYearWebProgramming/assignmentpart1-S00188523#readme",
   "dependencies": {
+    "joi": "^17.11.0",
     "mongoose": "^7.6.3"
   }
 }
