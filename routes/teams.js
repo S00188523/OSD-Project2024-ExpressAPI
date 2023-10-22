@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
 
       if (team) {
 
-        .json(team)
+        res.json(team)
 
       }
 
