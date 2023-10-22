@@ -1,11 +1,16 @@
 const express = require('express')
 
-const {Team} = require('../models/teams')
+const {Team, ValidateTeam} = require('../models/teams')
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    
+  let result = ValidateTeam(req.body)
+
+  if (result.error) {
+    res.status(400).json(result.error);
+    return;
+  }
 
     let team = new Team(req.body);
 

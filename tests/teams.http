@@ -11,6 +11,7 @@ content-type: application/json
 {
   "name": "Liverpool FC",
   "venue": "Anfield",
+  "venueCapacity": 9000,
   "league": "English Premier League",
   "kitColour": "Red",
   "manager": "Jurgen Klopp"
@@ -36,6 +37,7 @@ content-type: application/json
     
   "name": "Manchester City",
   "venue": "The Etihad",
+  "venueCapacity": 53400,
   "league": "English Premier League",
   "kitColour": "Blue",
   "manager": "Pep Guardiola"
