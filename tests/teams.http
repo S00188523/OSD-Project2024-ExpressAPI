@@ -20,26 +20,27 @@ content-type: application/json
 ### GET Request for a team
 GET http://localhost:{{port}}/api/v1/teams HTTP/1.1
 
-@newTeamID = {{postATeam.response.body._id}}
+###
+@newObjectID = {{postATeam.response.body._id}}
 
 ###
-### GET request for a team by ID
-GET http://localhost:{{port}}/api/v1/teams/{{newTeamID}}
+### GET request for a team by new ID
+GET http://localhost:{{port}}/api/v1/teams/{{newObjectID}} HTTP/1.1
 
 ###
-### PUT request for a team by ID - (updates latest team added)
-PUT http://localhost:{{port}}/api/v1/teams/{{newTeamID}}
+### PUT request for a team by new ID - (updates the latest team added)
+PUT http://localhost:{{port}}/api/v1/teams/{{newObjectID}} HTTP/1.1
 content-type: application/json
 
 {
     
-  "name": "Arsenal",
-  "venue": "The Emirates",
+  "name": "Manchester City",
+  "venue": "The Etihad",
   "league": "English Premier League",
-  "kitColour": "Red and White",
-  "manager": "Mikel Arteta"
+  "kitColour": "Blue",
+  "manager": "Pep Guardiola"
 }
 
 ###
-### DELETE request to delete a team by ID
-DELETE http://localhost:{{port}}/api/v1/teams/{{newTeamID}}
+### DELETE request to delete the latest entry
+DELETE http://localhost:{{port}}/api/v1/teams/{{newObjectID}} HTTP/1.1
