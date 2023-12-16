@@ -1,10 +1,12 @@
 const express = require('express')
 
 const {Team, ValidateTeam} = require('../models/teams')
+const {validateAuth0AccessToken} = require('../middleware/auth0.middleware')
+
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', validateAuth0AccessToken, async (req, res) => {
   let result = ValidateTeam(req.body)
 
   if (result.error) {
@@ -91,7 +93,7 @@ router.put('/:teamId', async (req, res) => {
 });
 
 // DELETE Request to Remove a Team
-router.delete('/:teamId', async (req, res) => {
+router.delete('/:teamId', validateAuth0AccessToken, async (req, res) => {
   const { teamId } = req.params;
 
   try {
