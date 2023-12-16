@@ -1,0 +1,19 @@
+# @name testAuth
+POST https://dev-lhntii3zwq25ufuy.eu.auth0.com/oauth/token
+content-type: application/json
+
+{"client_id":"9LwWs9zOFC9tDO4VE6o9e3K0s8oD7mOZ",
+"client_secret":"sY30a6Tu-Dcj2ue_hwhYydnpIZjyCHwX8hYJj_nKxj7D-mtvG7Z-vC8Fth-weqX3",
+"audience":"Adam223",
+"grant_type":"client_credentials"}
+
+###
+
+GET http://localhost:3000/api/v1/teams
+Authorization: Bearer {{testAuth.response.body.access_token}}
+
+###
+
+# GET http://localhost:3000/api/v1/teams
+# Authorization: Bearer 
+# eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRHSzA3emppWk1EZnRvOWJmVmZtbiJ9.eyJpc3MiOiJodHRwczovL2Rldi1odGpyZHh5dTJwODd6anNtLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDExMTg4Mzg5NDY1MjUyODU0ODQ1NyIsImF1ZCI6WyJib29rcyIsImh0dHBzOi8vZGV2LWh0anJkeHl1MnA4N3pqc20udXMuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY2OTgwMjQ0MywiZXhwIjoxNjY5ODg4ODQzLCJhenAiOiJwWFFlR1haNnp1OE9zcEMyeWQwSUZwNU5aZ1FrMjB0QyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwifQ.ffK5gxkjzv7O24wM4AUggt0Oyhbzq-dajRB5yBgPiu2caCKzIvP8fPLrr_VQnZa9TLoTsqAKvQ-2werYpRQFD8C_yEj_ZL3p2hz3gK234HRoa6x8M1sBio0iw6vRMXbUdCKRy2XxdxUAz2BMk3nBZPDuOXm2zxcudpIXwEqjdDkcdMm083iTU39_u2gBkBavBilxx3f_0zTHoRJg0d7424E43AXR88dXsyPSqSFtNsYiUPHWG5W5XRl9J8Dy_ilgWz9jnPksuUT4PqyL4cN00qv5RSzkEtBec4gTBKleQySJYLsmEnqSvBD5WKi-4gdxnEDcYv2g6-SRmt2htFyZqw
